@@ -1,4 +1,4 @@
-# xadrez
+# Xadrez
   Trabalho MC322 <br/>
   Nome do Grupo: Objetos Desorientados
   - Lucas de Paula Soares - RA: 201867<br/>
