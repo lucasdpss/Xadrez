@@ -4,9 +4,11 @@ import pecas.*;
 
 public class Tabuleiro {
 	private Peca matriz[][];
+	private char lance;
 	
 	public Tabuleiro(){
 		matriz = new Peca[8][8];
+		lance = 'B';
 		
 		for(int i=0;i < 8;i++) {
 			for(int j=0;j < 8;j++) {
@@ -60,5 +62,13 @@ public class Tabuleiro {
 	
 	public void setPeca(int i, int j, Peca p) {
 		matriz[i][j] = p;
+	}
+	
+	public char getLance() {
+		return lance;
+	}
+	
+	public void mudaJogador() {
+		lance = (lance == 'B')?'P':'B';
 	}
 }

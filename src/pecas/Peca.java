@@ -32,5 +32,13 @@ public class Peca {
 	public char getCaractere() {
 		return caractere;
 	}
+	
+	public int getIPos() {
+		return iPos;
+	}
+	
+	public int getJPos() {
+		return jPos;
+	}
 
 }

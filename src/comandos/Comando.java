@@ -1,9 +1,13 @@
 package comandos;
 
 public class Comando {
-	String texto;
+	protected String text;
 	
-	public Comando(){
-		
+	public Comando(String text){
+		this.text = text;
+	}
+	
+	public String getText() {
+		return text;
 	}
 }
