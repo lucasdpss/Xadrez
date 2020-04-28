@@ -1,4 +1,4 @@
-package jogo_xadrez;
+package comandos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
