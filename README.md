@@ -6,5 +6,5 @@
   
   
   Na pasta /src há o "jogo.csv", arquivo utilizado para determinar o movimento das peças.
-  As classes estão no pacote "jogo_de_damas"
+  As classes estão no pacote "jogo_xadrez"
  
