@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		CSVReaderTyped csv = new CSVReaderTyped();
-		csv.setDataSource("src\\jogo.csv");
+		csv.setDataSource("src\\comandos\\jogo.csv");
 		Comando commands[] = csv.requestCommandsTyped();
 
 		Tabuleiro t = new Tabuleiro();
