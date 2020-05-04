@@ -17,7 +17,6 @@ public class Main {
 		Peca pecaAtual = null;
 		
 		for(int i=0;i < commands.length;i++) {
-			//LEITURA DE COMANDOS NAO FOI TESTADA
 			if(commands[i].getText().length() == 5) { //Movimento
 				System.out.println("Source: "+commands[i].getText().charAt(0)+commands[i].getText().charAt(1));
 				System.out.println("target: "+commands[i].getText().charAt(3)+commands[i].getText().charAt(4));
