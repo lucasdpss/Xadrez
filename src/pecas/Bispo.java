@@ -20,7 +20,10 @@ public class Bispo extends Peca {
 		for(int v=1;v < diferencaI;v++)
 			if(t.getPeca(iPos + ((id-iPos)>0?v:-v), jPos + ((jd-jPos)>0?v:-v)) != null)
 				return false;
-
+		
+		Peca capturada = t.getPeca(id, jd);
+		if(capturada != null && capturada.getCor() == this.getCor()) return false;
+		
 		return true;
 	}
 

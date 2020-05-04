@@ -28,6 +28,9 @@ public class Torre extends Peca {
 					return false;
 		}
 		
+		Peca capturada = t.getPeca(id, jd);
+		if(capturada != null && capturada.getCor() == this.getCor()) return false;
+		
 		return true;
 	}
 
