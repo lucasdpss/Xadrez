@@ -18,7 +18,7 @@ public class CSVReaderTyped extends CSVReader {
 				commands[i] = new Transforma(commandsStr[i]);
 			else System.out.println("Entrada inválida na célula " + i);
 		}
-		return null;
+		return commands;
 	}
 	
 }

@@ -33,6 +33,9 @@ public class Main {
 					pecaAtual.mover(id, jd);
 					t.mudaJogador();
 				}
+				
+				t.mostrar();
+				System.out.println();
 			}
 			
 			//TRANSFORMACAO DE PEOES NAO FOI TESTADA

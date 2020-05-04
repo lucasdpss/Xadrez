@@ -20,8 +20,7 @@ public class Peca {
 		return false;
 	}
 	
-	public boolean mov_valido(int i,int j) {
-		System.out.println("Isso nao era pra ser impresso");
+	public boolean mov_valido(int id,int jd) {
 		return false;
 	}
 	
