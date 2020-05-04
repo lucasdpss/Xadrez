@@ -26,6 +26,7 @@ public class Peao extends Peca{
 		if(diferencaI == 2) {
 			if(diferencaJ != 0) return false;
 			if(!primeiroMovimento) return false;
+			if(t.getPeca((id+iPos)/2, jd) != null) return false;
 		}
 		
 		else {
