@@ -73,10 +73,25 @@ public class Tabuleiro {
 		//lembrando que ameaca posicoes somente se for uma peca inimiga
 		for(int i=0;i < 8;i++) {
 			for(int j=0;j < 8;j++) {
-				if(this.getPeca(i, j) != null && this.getPeca(i, j).getCaractere() != this.lance)
+				if(this.getPeca(i, j) != null && this.getPeca(i, j).getCor() != this.lance)
 					this.getPeca(i, j).ameaca_posicoes();
 			}
 		}
+		
+		char cor_do_inimigo = (this.lance == 'B')? 'P':'B';
+		System.out.println("Casas ameacadas pela cor " + cor_do_inimigo);
+		for(int i=0;i < 8;i++) {
+			System.out.print(8 - i);
+			for(int j=0;j < 8;j++) {
+				if(casa_ameacada[i][j] == false) {
+					System.out.print(" -");
+				}else {
+					System.out.print(" " + "x");
+				}
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h");
 				
 	}
 	

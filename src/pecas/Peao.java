@@ -57,10 +57,23 @@ public class Peao extends Peca{
 		else return false;
 	}
 	
+	private boolean ameaca_valida(int i,int j) {
+		int diferencaI = (i-iPos>=0)?(i-iPos):(iPos-i);
+		int diferencaJ = (j-jPos>=0)?(j-jPos):(jPos-j);
+		
+		if(i == iPos && j == jPos) return false;  //Nao pode ir para o lugar atual
+		
+		if(this.getCor() == 'B' && i > iPos) return false; //Nao pode ir pra tras
+		if(this.getCor() == 'P' && i < iPos) return false;
+		
+		if(diferencaJ == 1 && diferencaI == 1) return true;
+		else return false;
+	}
+	
 	public void ameaca_posicoes() {
 		for(int i=0;i < 8;i++) {
 			for(int j=0;j < 8;j++) {
-				if(this.mov_valido(i, j)) {
+				if(this.ameaca_valida(i, j)) {
 					t.setCasa_ameacada(i, j, true);
 					if(t.getPeca(i, j) != null && t.getPeca(i, j).getCaractere() == 'k')
 						t.setRei_em_xeque('B', true);

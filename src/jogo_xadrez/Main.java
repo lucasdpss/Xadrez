@@ -30,9 +30,23 @@ public class Main {
 				
 				if(pecaAtual != null && pecaAtual.getCor() == t.getLance()) {
 					t.analisa_jogo(); //verifica casas ameacadas para o jogador do lance atual e se tem rei em xeque
-					pecaAtual.mover(id, jd);
-					t.mudaJogador();
-				}
+					
+					if(t.getRei_em_xeque(t.getLance())) {
+						System.out.println("Rei em xeque");
+					}
+					if(pecaAtual.mover(id, jd)) {  //se o movimento for bem sucedido
+						System.out.println();
+						t.analisa_jogo();
+						if(t.getRei_em_xeque(t.getLance())) { //se o rei for ameacado nessa jogada
+							System.out.println("Rei eh ameacado, movimento requerido proibido ******************************************");
+							t.setPeca(ii, ji, pecaAtual);
+							t.setPeca(id, jd, null); //volta a peca para o lugar original
+						}else {
+							t.mudaJogador();
+						}
+					}
+				}else 
+					System.out.println("movimento invalido #################################@#@#@#@#@############@#@#@##@#########");
 				
 				t.mostrar();
 				System.out.println();
