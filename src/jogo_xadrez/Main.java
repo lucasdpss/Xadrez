@@ -17,7 +17,7 @@ public class Main {
 		Peca pecaAtual = null;
 		
 		for(int i=0;i < commands.length;i++) {
-			if(commands[i].getText().length() == 5) { //Movimento
+			if(commands[i].getText().length() == 5) { //Movimento comum
 				System.out.println("Source: "+commands[i].getText().charAt(0)+commands[i].getText().charAt(1));
 				System.out.println("target: "+commands[i].getText().charAt(3)+commands[i].getText().charAt(4));
 				
@@ -29,6 +29,7 @@ public class Main {
 				pecaAtual = t.getPeca(ii, ji);
 				
 				if(pecaAtual != null && pecaAtual.getCor() == t.getLance()) {
+					t.analisa_jogo(); //verifica casas ameacadas para o jogador do lance atual e se tem rei em xeque
 					pecaAtual.mover(id, jd);
 					t.mudaJogador();
 				}
@@ -37,7 +38,6 @@ public class Main {
 				System.out.println();
 			}
 			
-			//TRANSFORMACAO DE PEOES NAO FOI TESTADA
 			else if(commands[i].getText().length() == 1) { //Transformacao de peao
 				Peca ultimaPeca = pecaAtual;
 				

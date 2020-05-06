@@ -24,6 +24,10 @@ public class Peca {
 		return false;
 	}
 	
+	public void ameaca_posicoes() {
+		return;
+	}
+	
 	public char getCor(){
 		return cor;
 	}
