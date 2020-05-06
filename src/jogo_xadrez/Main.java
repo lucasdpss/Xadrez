@@ -56,6 +56,19 @@ public class Main {
 					case "q":
 						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Rainha(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
 						break;
+						
+					case "T":
+						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Torre(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
+						break;
+					case "H":
+						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Cavalo(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
+						break;
+					case "B":
+						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Bispo(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
+						break;
+					case "Q":
+						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Rainha(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
+						break;
 					}
 				}
 				

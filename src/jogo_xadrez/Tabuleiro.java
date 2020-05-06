@@ -25,11 +25,11 @@ public class Tabuleiro {
 				else if((i == 7) && (j == 5 || j == 2))
 					matriz[i][j] = new Bispo('B', i, j, this);
 				else if((i == 0) && (j == 4))
-					matriz[i][j] = new Rainha('P', i, j, this);
+					matriz[i][j] = new Rei('P', i, j, this);
 				else if((i == 7) && (j == 3))
 					matriz[i][j] = new Rainha('B', i, j, this);
 				else if((i == 0) && (j == 3))
-					matriz[i][j] = new Rei('P', i, j, this);
+					matriz[i][j] = new Rainha('P', i, j, this);
 				else if((i == 7) && (j == 4))
 					matriz[i][j] = new Rei('B', i, j, this);
 				else if(i == 1)
