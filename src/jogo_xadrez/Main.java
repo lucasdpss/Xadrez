@@ -105,18 +105,17 @@ public class Main {
 			System.out.println();
 			
 			//analisar o jogo ao final da jogada: se foi apenas um xeque ou um xeque-mate para o prox jogador
-			if(t.xequeMate()) {
-				System.out.println("Xeque Mate!");
-				break;
-			}else {
-				t.analisa_jogo(t.getLance());
-				boolean reiEmXeque = t.getRei_em_xeque(t.getLance());
-				if(reiEmXeque) {
-					if(t.getLance() == 'B')
-						System.out.println("Rei das Brancas em Xeque");
-					else                                              
-						System.out.println("Rei das Pretas em Xeque");
-				}
+			t.analisa_jogo(t.getLance());
+			boolean reiEmXeque = t.getRei_em_xeque(t.getLance());
+			if(reiEmXeque) {
+				
+				if(t.xequeMate()) {
+					System.out.println("Xeque Mate!");
+					break;
+				}else if(t.getLance() == 'B')
+					System.out.println("Rei das Brancas em Xeque");
+				else                                              
+					System.out.println("Rei das Pretas em Xeque");
 			}
 			
 		}
