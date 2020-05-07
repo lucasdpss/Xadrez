@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		CSVReaderTyped csv = new CSVReaderTyped();
-		csv.setDataSource("src\\comandos\\jogo.csv");
+		csv.setDataSource("src\\comandos\\jogo2.csv");
 		Comando commands[] = csv.requestCommandsTyped();
 
 		Tabuleiro t = new Tabuleiro();
@@ -27,6 +27,15 @@ public class Main {
 				int ji =  commands[i].getText().charAt(0) - 'a';   //j inicial
 				int id = '8' - commands[i].getText().charAt(4);    //i destino
 				int jd = commands[i].getText().charAt(3) - 'a';    //j destino
+				
+				if(ii >= 8 || ji >= 8 || ii < 0 || ji < 0) {
+					System.out.println("Nao existe essa posicao no tabuleiro");
+					continue;
+				}
+				if(id >= 8 || jd >= 8 || id < 0 || jd < 0) {
+					System.out.println("Nao existe essa posicao destino no tabuleiro");
+					continue;
+				}
 				
 				pecaAtual = t.getPeca(ii, ji);
 				pecaDestino = t.getPeca(id, jd);
