@@ -6,11 +6,13 @@ public class Tabuleiro {
 	private Peca matriz[][];
 	private char lance;
 	private boolean casa_ameacada[][];
+	public char peca_atacante[][];
 	private boolean rei_branco_em_xeque;
 	private boolean rei_preto_em_xeque;
 	
 	public Tabuleiro(){
 		casa_ameacada = new boolean[8][8];
+		peca_atacante = new char[8][8];
 		matriz = new Peca[8][8];
 		lance = 'B';
 		rei_branco_em_xeque = false;
@@ -67,8 +69,10 @@ public class Tabuleiro {
 		this.setRei_em_xeque('B', false);
 		this.setRei_em_xeque('P', false);
 		for(int i=0;i < 8;i++)
-			for(int j=0;j < 8;j++) 
+			for(int j=0;j < 8;j++) {
 				casa_ameacada[i][j] = false;
+				peca_atacante[i][j] = '-';
+			}
 		
 		//lembrando que ameaca posicoes somente se for uma peca inimiga
 		for(int i=0;i < 8;i++) {
@@ -91,7 +95,16 @@ public class Tabuleiro {
 			}
 			System.out.println();
 		}
-		System.out.println("  a b c d e f g h");
+		System.out.println("  a b c d e f g h\n");
+		
+		for(int i=0;i < 8;i++) {
+			System.out.print(8 - i);
+			for(int j=0;j < 8;j++) {
+				System.out.print( " "+ peca_atacante[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h\n");
 				
 	}
 	

@@ -34,7 +34,7 @@ public class Rainha extends Peca {
 					return false;
 			break;
 		case 'H':
-			for(int v=1;v < diferencaI;v++)
+			for(int v=1;v < diferencaJ;v++)
 				if(t.getPeca(iPos, jPos + ((jd-jPos)>0?v:-v)) != null)
 					return false;
 			break;
@@ -62,19 +62,6 @@ public class Rainha extends Peca {
 		}
 		else return false;
 	}
-	
-	public void ameaca_posicoes() {
-		for(int i=0;i < 8;i++) {
-			for(int j=0;j < 8;j++) {
-				if(this.mov_valido(i, j)) {
-					t.setCasa_ameacada(i, j, true);
-					if(t.getPeca(i, j) != null && t.getPeca(i, j).getCaractere() == 'k')
-						t.setRei_em_xeque('B', true);
-					else if(t.getPeca(i, j) != null && t.getPeca(i, j).getCaractere() == 'K')
-						t.setRei_em_xeque('P', true);
-				}
-			}
-		}
-	}
+
 	
 }

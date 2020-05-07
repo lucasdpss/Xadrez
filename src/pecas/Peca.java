@@ -25,7 +25,18 @@ public class Peca {
 	}
 	
 	public void ameaca_posicoes() {
-		return;
+		for(int i=0;i < 8;i++) {
+			for(int j=0;j < 8;j++) {
+				if(this.mov_valido(i, j)) {
+					t.setCasa_ameacada(i, j, true);
+					t.peca_atacante[i][j] = this.getCaractere();
+					if(t.getPeca(i, j) != null && t.getPeca(i, j).getCaractere() == 'k')
+						t.setRei_em_xeque('B', true);
+					else if(t.getPeca(i, j) != null && t.getPeca(i, j).getCaractere() == 'K')
+						t.setRei_em_xeque('P', true);
+				}
+			}
+		}
 	}
 	
 	public char getCor(){
