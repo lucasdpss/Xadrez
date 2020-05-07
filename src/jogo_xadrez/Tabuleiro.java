@@ -81,7 +81,8 @@ public class Tabuleiro {
 				
 	}
 	
-	public boolean xequeMate() {  //funcao mais ambiciosa do projeto =)
+	public boolean xequeMate() { //testa xeque mate para o jogador do lance atual
+		
 		return false;
 	}
 	
