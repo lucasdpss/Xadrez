@@ -81,6 +81,10 @@ public class Tabuleiro {
 				
 	}
 	
+	public boolean xequeMate() {  //funcao mais ambiciosa do projeto =)
+		return false;
+	}
+	
 	public Peca getPeca(int i, int j) {
 		return matriz[i][j];
 	}

@@ -33,14 +33,6 @@ public class Main {
 				
 				if(pecaAtual != null && pecaAtual.getCor() == t.getLance()) {
 					
-					t.analisa_jogo(t.getLance());
-					boolean reiEmXeque = t.getRei_em_xeque(t.getLance());
-					if(reiEmXeque) {
-						if(t.getLance() == 'B')
-							System.out.println("Rei das Brancas em Xeque");//Nao eh possivel ter xeque_mate aqui pois o xeque_mate
-						else                                              // eh testado no final de cada rodada
-							System.out.println("Rei das Pretas em Xeque");
-					}
 					
 					if(pecaAtual.mover(id, jd)) {  //se o movimento for bem sucedido
 						t.analisa_jogo(t.getLance()); //verifica as casas ameacadas
@@ -68,6 +60,7 @@ public class Main {
 				
 				if((ultimaPeca.getCaractere() == 'p' && ultimaPeca.getIPos() == 0)
 				|| (ultimaPeca.getCaractere() == 'P' && ultimaPeca.getIPos() == 7)) {
+					System.out.println("Promoção do Peão:");
 					switch(commands[i].getText()) {
 					case "t":
 						t.setPeca(ultimaPeca.getIPos(), ultimaPeca.getJPos(), new Torre(ultimaPeca.getCor(), ultimaPeca.getIPos(), ultimaPeca.getJPos(), t));
@@ -101,6 +94,21 @@ public class Main {
 			
 			t.mostrar();
 			System.out.println();
+			
+			//analisar o jogo ao final da jogada: se foi apenas um xeque ou um xeque-mate para o prox jogador
+			if(t.xequeMate()) {
+				System.out.println("Xeque Mate!");
+				break;
+			}else {
+				t.analisa_jogo(t.getLance());
+				boolean reiEmXeque = t.getRei_em_xeque(t.getLance());
+				if(reiEmXeque) {
+					if(t.getLance() == 'B')
+						System.out.println("Rei das Brancas em Xeque");
+					else                                              
+						System.out.println("Rei das Pretas em Xeque");
+				}
+			}
 			
 		}
 	}
