@@ -111,12 +111,22 @@ public class Main {
 				
 				if(t.xequeMate()) {
 					System.out.println("Xeque Mate!");
+					if(t.getLance() == 'B') {
+						System.out.println("Pretas venceram!");
+					}else {
+						System.out.println("Brancas venceram!");
+					}
 					break;
 				}else if(t.getLance() == 'B')
 					System.out.println("Rei das Brancas em Xeque");
 				else                                              
 					System.out.println("Rei das Pretas em Xeque");
+				
+				//System.out.println("apos o teste do xeque mate:");  //usados para debug
+				//t.mostrar();
+				//System.out.println();
 			}
+			
 			
 		}
 	}
