@@ -81,8 +81,21 @@ public class Tabuleiro {
 				
 	}
 	
-	public boolean xequeMate() {  //funcao mais ambiciosa do projeto =)
-		return false;
+	public boolean xequeMate() { //testa xeque mate para o jogador do lance atual
+		
+		boolean foiXequeMate = true; //tera sido um xeque mate ate encontrar uma jogada que tira o xeque do rei
+		
+		for(int i=0;i < 8;i++) {
+			for(int j=0;j < 8;j++) {
+				if(this.getPeca(i, j) != null && this.getPeca(i, j).getCor() == this.lance) {
+					if(this.getPeca(i, j).algumMovimentoSalvaRei()) {
+						foiXequeMate = false;
+						return foiXequeMate;
+					}
+				}
+			}
+		}
+		return foiXequeMate;
 	}
 	
 	public Peca getPeca(int i, int j) {

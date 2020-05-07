@@ -25,17 +25,5 @@ public class Rei extends Peca{
 		return true;
 	}
 
-	public boolean mover(int id, int jd) {
-		if(this.mov_valido(id, jd)) {
-			t.setPeca(id, jd, this);
-			t.setPeca(iPos, jPos, null);
-			iPos = id;
-			jPos = jd;
-
-			return true;
-		}
-		else return false;
-	}
-	
 
 }
