@@ -62,8 +62,8 @@ public class Tabuleiro {
 		System.out.println("  a b c d e f g h");
 	}
 	
-	//verifica as casas ameacadas e se algum rei esta em xeque
-	public void analisa_jogo() {
+	//verifica as casas ameacadas e se algum rei esta em xeque para a cor dada
+	public void analisa_jogo(char cor) {
 		this.setRei_em_xeque('B', false);
 		this.setRei_em_xeque('P', false);
 		for(int i=0;i < 8;i++)
@@ -74,8 +74,8 @@ public class Tabuleiro {
 		//lembrando que ameaca posicoes somente se for uma peca inimiga
 		for(int i=0;i < 8;i++) {
 			for(int j=0;j < 8;j++) {
-				if(this.getPeca(i, j) != null && this.getPeca(i, j).getCor() != this.lance)
-					this.getPeca(i, j).ameaca_posicoes();
+				if(this.getPeca(i, j) != null && this.getPeca(i, j).getCor() != cor) //devemos verificar a ameaca das pecas
+					this.getPeca(i, j).ameaca_posicoes();                            // de cor oposta a cor dada
 			}
 		}
 				

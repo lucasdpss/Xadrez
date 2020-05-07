@@ -15,11 +15,13 @@ public class Main {
 		System.out.println();
 		
 		Peca pecaAtual = null;
+		Peca pecaDestino = null;
 		
 		for(int i=0;i < commands.length;i++) {
 			if(commands[i].getText().length() == 5) { //Movimento comum
 				System.out.println("Source: "+commands[i].getText().charAt(0)+commands[i].getText().charAt(1));
 				System.out.println("target: "+commands[i].getText().charAt(3)+commands[i].getText().charAt(4));
+				System.out.println();
 				
 				int ii = '8' - commands[i].getText().charAt(1);    //i inicial
 				int ji =  commands[i].getText().charAt(0) - 'a';   //j inicial
@@ -27,24 +29,38 @@ public class Main {
 				int jd = commands[i].getText().charAt(3) - 'a';    //j destino
 				
 				pecaAtual = t.getPeca(ii, ji);
+				pecaDestino = t.getPeca(id, jd);
 				
 				if(pecaAtual != null && pecaAtual.getCor() == t.getLance()) {
+					
+					t.analisa_jogo(t.getLance());
+					boolean reiEmXeque = t.getRei_em_xeque(t.getLance());
+					if(reiEmXeque) {
+						if(t.getLance() == 'B')
+							System.out.println("Rei das Brancas em Xeque");//Nao eh possivel ter xeque_mate aqui pois o xeque_mate
+						else                                              // eh testado no final de cada rodada
+							System.out.println("Rei das Pretas em Xeque");
+					}
+					
 					if(pecaAtual.mover(id, jd)) {  //se o movimento for bem sucedido
-						System.out.println();
-						t.analisa_jogo();
+						t.analisa_jogo(t.getLance()); //verifica as casas ameacadas
 						if(t.getRei_em_xeque(t.getLance())) { //se o rei for ameacado nessa jogada
-							System.out.println("Rei eh ameacado, movimento requerido proibido ******************************************");
-							t.setPeca(ii, ji, pecaAtual);  //CHECAR PECA ANTIGA QUE FOI COMIDA
-							t.setPeca(id, jd, null); //volta a peca para o lugar original
+							System.out.println("Rei fica ameacado, movimento requerido proibido");
+							t.setPeca(ii, ji, pecaAtual);  //volta a peca que tentou mexer
+							t.setPeca(id, jd, pecaDestino); //volta a peca antiga (podendo ser null) para o lugar original
 						}else {
 							t.mudaJogador();
 						}
+					}else {
+						System.out.println("Esse movimento nao é possível");
 					}
-				}else 
-					System.out.println("movimento invalido #################################@#@#@#@#@############@#@#@##@#########");
+					
+				}else if(pecaAtual == null) {
+					System.out.println("Nao ha peca nessa posicao");
+				}else if(pecaAtual.getCor() != t.getLance()) {
+					System.out.println("Nao esta na sua vez");
+				}
 				
-				t.mostrar();
-				System.out.println();
 			}
 			
 			else if(commands[i].getText().length() == 1) { //Transformacao de peao
@@ -82,6 +98,10 @@ public class Main {
 				}
 				
 			}
+			
+			t.mostrar();
+			System.out.println();
+			
 		}
 	}
 		
