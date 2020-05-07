@@ -10,9 +10,10 @@ public class Rei extends Peca{
 	}
 	
 	public boolean mov_valido(int id,int jd) {
-		//FALTA IMPLEMENTAR QUE REI NAO PODE SE MOVER PARA UM ESPAÇO AMEAÇADO
 		int diferencaI = (id-iPos>=0)?(id-iPos):(iPos-id);
 		int diferencaJ = (jd-jPos>=0)?(jd-jPos):(jPos-jd);
+		
+		if(id == iPos && jd == jPos) return false;  //Nao pode ir para o lugar atual
 
 		if(id >= 8 || jd >= 8 || id < 0 || jd < 0) return false;
 		if(diferencaI == 0 && diferencaJ == 0) return false;
@@ -35,5 +36,6 @@ public class Rei extends Peca{
 		}
 		else return false;
 	}
+	
 
 }

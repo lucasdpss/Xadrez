@@ -12,6 +12,8 @@ public class Bispo extends Peca {
 	public boolean mov_valido(int id,int jd) {
 		int diferencaI = (id-iPos>=0)?(id-iPos):(iPos-id);
 		int diferencaJ = (jd-jPos>=0)?(jd-jPos):(jPos-jd);
+		
+		if(id == iPos && jd == jPos) return false;  //Nao pode ir para o lugar atual
 
 		if(id >= 8 || jd >= 8 || id < 0 || jd < 0) return false;
 		if(diferencaI != diferencaJ) return false;
@@ -38,4 +40,6 @@ public class Bispo extends Peca {
 		}
 		else return false;
 	}
+	
+	
 }

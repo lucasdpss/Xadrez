@@ -12,6 +12,8 @@ public class Rainha extends Peca {
 	public boolean mov_valido(int id,int jd) {
 		int diferencaI = (id-iPos>=0)?(id-iPos):(iPos-id);
 		int diferencaJ = (jd-jPos>=0)?(jd-jPos):(jPos-jd);
+		
+		if(id == iPos && jd == jPos) return false;  //Nao pode ir para o lugar atual
 		char movimento;
 
 		if(id >= 8 || jd >= 8 || id < 0 || jd < 0) return false;
@@ -32,7 +34,7 @@ public class Rainha extends Peca {
 					return false;
 			break;
 		case 'H':
-			for(int v=1;v < diferencaI;v++)
+			for(int v=1;v < diferencaJ;v++)
 				if(t.getPeca(iPos, jPos + ((jd-jPos)>0?v:-v)) != null)
 					return false;
 			break;
@@ -60,5 +62,6 @@ public class Rainha extends Peca {
 		}
 		else return false;
 	}
+
 	
 }
