@@ -57,7 +57,6 @@ public abstract class Peca {
 						t.setPeca(i, j, pecaDestino); //volta a peca antiga (podendo ser null) para o lugar original
 						this.iPos = ii;
 						this.jPos = ji;
-						//System.out.println("peca que salva: "+ this.getCaractere()+" destino dela:" + i+" " +j); //debug
 						return true; //esse movimento salvou o rei
 					}
 					t.setPeca(ii, ji, this);  //volta a peca que tentou mexer

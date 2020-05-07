@@ -1,6 +1,6 @@
 package comandos;
 
-public class Comando {
+public abstract class Comando {
 	protected String text;
 	
 	public Comando(String text){
